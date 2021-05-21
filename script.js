@@ -1,37 +1,52 @@
 console.log("Hello World");
 
 let trClone = $("tbody>tr");
-console.log(trClone);
+// console.log(trClone);
+
+let maninComponent = document.createDocumentFragment();
+// console.log(maninComponent);
+
+// console.log("mainElement");
+// console.log(mainElement[0]);
+
+// maninComponent.appendChild(mainElement[0]);
 
 async function call() {
   let rawData = await fetch(
     "http://localhost:5500/YouTube and YouTube Music/subscriptions/subscriptions.json"
   );
   let data = await rawData.json();
-  console.log(data);
+  //   console.log(data);
 
-  let iterationData = data[0];
-  console.log("iterationData");
-  console.log(iterationData);
+  data.map((iterationData, index, array) => {
+    //  console.log(index);
+    //  console.log("iterationData");
+    //  console.log(iterationData);
 
-  let element = trClone.clone().children();
-  console.log("element");
-  console.log(element);
+    //  console.log("element");
+    //  console.log(element);
 
-  element[0].innerText = "sl number";
+    let mainElement = trClone.clone();
+    let element = mainElement.children();
 
-  element[1].innerText = iterationData.snippet.title;
+    element[0].innerText = index + 1;
 
-  element[2].children[0].src = iterationData.snippet.thumbnails.default.url;
+    element[1].innerText = iterationData.snippet.title;
 
-  element[3].innerText = iterationData.snippet.description;
+    element[2].children[0].src = iterationData.snippet.thumbnails.default.url;
 
-  element[4].children[0].href = `https://www.youtube.com/channel/${iterationData.snippet.channelId}`;
+    element[3].innerText = iterationData.snippet.description;
 
-  console.log(element[5].children[0].children[0].src);
-  //   element[5].innerText = "";
+    element[4].children[0].href = `https://www.youtube.com/channel/${iterationData.snippet.channelId}`;
 
-  $("tbody").append(element);
+    //  console.log(element[5].children[0].children[0].src);
+    //   element[5].innerText = "";
+    console.log(mainElement[0]);
+    maninComponent.appendChild(mainElement[0]);
+  });
+  console.log("maninComponent");
+  console.log(maninComponent);
+  $("tbody").append(maninComponent);
 
   //   let domChannelName = element;
   //   domChannelName.innerText = "ksdjflkj";
