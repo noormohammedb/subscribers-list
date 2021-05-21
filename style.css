@@ -5,24 +5,24 @@
 }
 
 html {
-  background: #595959d2;
+  background: #5258fff5;
 }
 body {
   min-height: 100vh;
-  /* background: #310000d2; */
+  min-width: 100vw;
+  background: #505050cb;
   color: #fff;
-  margin: 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
 }
 .container {
-  background: #26802327;
+  /* background: #26802327; */
   display: flex;
   flex-direction: column;
 }
 .table {
-  background: #2c1c7227;
+  /* background: #2c1c7227; */
   border: solid 0.3rem #072d50;
   padding: 1rem;
 }
@@ -43,7 +43,7 @@ body {
   flex-direction: column;
 }
 .subscribe {
-  background: #ae1717;
+  /* background: #ae1717; */
   /* color: #072d50; */
   border: none;
   border-radius: 10px;

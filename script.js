@@ -10,7 +10,7 @@ let maninComponent = document.createDocumentFragment();
 // maninComponent.appendChild(mainElement[0]);
 
 async function call() {
-  let rawData = await fetch("http://localhost:5500/subscriptions-lite.json");
+  let rawData = await fetch("http://localhost:5500/subscriptions.json");
   let data = await rawData.json();
   //   console.log(data);
 
@@ -37,7 +37,7 @@ async function call() {
 
     //  element[2].children[0].src = iterationData.snippet.thumbnails.default.url;
 
-    element[2].children[0].href = `https://www.youtube.com/channel/${iterationData.snippet.channelId}`;
+    element[2].children[0].href = `https://www.youtube.com/channel/${iterationData.snippet.resourceId.channelId}`;
 
     //  console.log(element[3].children[0].children[0].src);
     //   element[3].innerText = "";
