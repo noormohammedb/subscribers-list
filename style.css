@@ -37,7 +37,7 @@ body {
   display: flex;
 }
 .f-row {
-  flex-direction: row;
+  flex-direction: ccolumn;
 }
 .f-column {
   flex-direction: column;
