@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 let trClone = $("tbody>tr");
 // console.log(trClone);
 
@@ -12,9 +10,7 @@ let maninComponent = document.createDocumentFragment();
 // maninComponent.appendChild(mainElement[0]);
 
 async function call() {
-  let rawData = await fetch(
-    "http://localhost:5500/YouTube and YouTube Music/subscriptions/subscriptions.json"
-  );
+  let rawData = await fetch("http://localhost:5500/subscriptions-lite.json");
   let data = await rawData.json();
   //   console.log(data);
 
@@ -26,26 +22,33 @@ async function call() {
     //  console.log("element");
     //  console.log(element);
 
-    let mainElement = trClone.clone();
+    let mainElement = trClone.first().clone();
+    //  console.log("mainElement");
+    //  console.log(mainElement);
     let element = mainElement.children();
+    //  console.log("element");
+    //  console.log(element);
 
     element[0].innerText = index + 1;
 
-    element[1].innerText = iterationData.snippet.title;
+    element.eq(1).children().eq(1)[0].src =
+      iterationData.snippet.thumbnails.default.url;
+    element.eq(1).children().eq(0)[0].innerText = iterationData.snippet.title;
 
-    element[2].children[0].src = iterationData.snippet.thumbnails.default.url;
+    //  element[2].children[0].src = iterationData.snippet.thumbnails.default.url;
 
-    element[3].innerText = iterationData.snippet.description;
+    element[2].children[0].href = `https://www.youtube.com/channel/${iterationData.snippet.channelId}`;
 
-    element[4].children[0].href = `https://www.youtube.com/channel/${iterationData.snippet.channelId}`;
+    //  console.log(element[3].children[0].children[0].src);
+    //   element[3].innerText = "";
+    //  console.log(mainElement[0]);
 
-    //  console.log(element[5].children[0].children[0].src);
-    //   element[5].innerText = "";
-    console.log(mainElement[0]);
+    element[4].innerText = iterationData.snippet.description;
+
     maninComponent.appendChild(mainElement[0]);
   });
-  console.log("maninComponent");
-  console.log(maninComponent);
+  //   console.log("maninComponent");
+  //   console.log(maninComponent);
   $("tbody").append(maninComponent);
 
   //   let domChannelName = element;
