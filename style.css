@@ -42,3 +42,13 @@ body {
 .f-column {
   flex-direction: column;
 }
+.subscribe {
+  background: #ae1717;
+  /* color: #072d50; */
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 5px;
+  padding: 5px;
+}
